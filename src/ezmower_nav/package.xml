@@ -15,7 +15,6 @@
   <exec_depend>ezmower_robot</exec_depend>
   <exec_depend>slam_toolbox</exec_depend>
   <exec_depend>navigation2</exec_depend>
-  <exec_depend>nav2-bringup</exec_depend>
 
 
   <export>
