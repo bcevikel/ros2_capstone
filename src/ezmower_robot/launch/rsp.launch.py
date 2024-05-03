@@ -30,7 +30,7 @@ def generate_launch_description():
                                       parameters=[{
                                           'robot_description': robot_description_content,
                                           'use_sim_time' : should_use_sim_time,
-                                          'ignore_timestamp' : True,
+                                          #'ignore_timestamp' : True,
                                       }])
 
     ld.add_action(robot_state_publisher_node)
