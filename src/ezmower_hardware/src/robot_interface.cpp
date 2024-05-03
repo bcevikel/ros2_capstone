@@ -129,8 +129,8 @@ void robot_interface::parse_packets_to_data_frames(esp_serial_driver& driver){
 
                 // also get the angular speed
                 imu_sample_angular_vel_x =  rot_frame.m_field_x * (M_PI /  180);        
-                imu_sample_angular_vel_y =  rot_frame.m_field_y * (M_PI /  180);  
-                imu_sample_angular_vel_z =  rot_frame.m_field_z * (M_PI /  180);  
+                imu_sample_angular_vel_y =  rot_frame.m_field_z * (M_PI /  180);  
+                imu_sample_angular_vel_z =  rot_frame.m_field_y * (M_PI /  180);  
                 break;
             }
             case esp_packets::message_types::esp_imu_trans:
