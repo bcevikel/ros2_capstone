@@ -170,5 +170,5 @@ def generate_launch_description():
     ld.add_action(delayed_range_sensor_right_spawner)
     ld.add_action(delayed_imu_spawner)
     ld.add_action(delayed_ekf_spawner)
-    ld.add_action(delayed_rviz_launcher)
+    #ld.add_action(delayed_rviz_launcher)
     return ld
