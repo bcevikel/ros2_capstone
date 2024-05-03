@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 50 # Hardware poll rate 
+    update_rate: 30 # Hardware poll rate 
     use_sim_time: true
 
     mobile_base_controller:
@@ -24,7 +24,7 @@ controller_manager:
 mobile_base_controller:
   ros__parameters:
 
-    publish_rate: 60.0
+    publish_rate: 30.0
 
     base_frame_id: base_link
 
