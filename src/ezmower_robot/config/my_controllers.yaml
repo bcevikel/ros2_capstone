@@ -34,7 +34,7 @@ mobile_base_controller:
     wheel_radius: 0.0625
     enable_odom_tf:  false
     use_stamped_vel: false
-    pose_covariance_diagonal: [0.0, 0.0, 0.0, 0.0, 0.0, 0.2] # x y z    r p y 
+    pose_covariance_diagonal: [0.0, 0.0, 0.0, 0.0, 0.0, 0.01] # x y z    r p y 
     twist_covariance_diagonal: [0.0, 0.0, 0.0, 0.0, 0.0, 0.2] # linear x y z ang x y z 
     linear.x.has_velocity_limits: true
     linear.x.min_velocity : -0.164 
@@ -76,6 +76,6 @@ imu_broadcaster:
     sensor_name : ezmower_imu
     frame_id : chasis
     static_covariance_orientation : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01] # r p y
-    static_covariance_angular_velocity : [0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   0.0, 0.0, 0.01] #z ang vel 
+    static_covariance_angular_velocity : [0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   0.0, 0.0, 0.05] #z ang vel 
     # static_covariance_linear_acceleration : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] # not used 
     
