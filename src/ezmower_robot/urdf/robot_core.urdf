@@ -236,7 +236,7 @@
    <joint name="lidar_joint" type="fixed">
         <parent link="roof_link"/>
         <child link="lidar_link"/>
-        <origin xyz="0 0 0.012"/>
+        <origin xyz="0 0 0.012" rpy="0.0 0.0 ${pi}"/>
     </joint>
     
     <link name="lidar_link">
