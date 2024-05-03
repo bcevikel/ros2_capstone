@@ -130,10 +130,10 @@ std::vector<hardware_interface::StateInterface> ezmower_hardware::ezmower_hw_if:
     state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"linear_acceleration.x",&(robot_interface_ptr->imu_sample_linear_acc_x)));
     state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"linear_acceleration.y",&(robot_interface_ptr->imu_sample_linear_acc_y)));
     state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"linear_acceleration.z",&(robot_interface_ptr->imu_sample_linear_acc_z)));
-    // IMU Broadcaster holds these mandatory, so start them with dummy value, ignore in robot_localization
-    state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"angular_velocity.x",&(robot_interface_ptr->imu_sample_unused)));
-    state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"angular_velocity.y",&(robot_interface_ptr->imu_sample_unused))); 
-    state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"angular_velocity.z",&(robot_interface_ptr->imu_sample_unused)));
+
+    state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"angular_velocity.x",&(robot_interface_ptr->imu_sample_angular_vel_x)));
+    state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"angular_velocity.y",&(robot_interface_ptr->imu_sample_angular_vel_y))); 
+    state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.imu_sensor_name,"angular_velocity.z",&(robot_interface_ptr->imu_sample_angular_vel_z)));
 
 
     state_interfaces.emplace_back(hardware_interface::StateInterface(robot_config.sonar_sensor_name_left,"range",&(robot_interface_ptr->range_sensor_left_m)));

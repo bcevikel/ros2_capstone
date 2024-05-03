@@ -27,7 +27,10 @@ public:
     double imu_sample_orientation_y; // in quarternion;
     double imu_sample_orientation_z; // in quarternion;
     double imu_sample_orientation_w; // in quarternion;
-    
+    double imu_sample_angular_vel_x; 
+    double imu_sample_angular_vel_y; 
+    double imu_sample_angular_vel_z; 
+       
     double imu_sample_unused = 0;
 
 

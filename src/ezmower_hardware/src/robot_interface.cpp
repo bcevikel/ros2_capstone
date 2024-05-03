@@ -10,7 +10,19 @@ robot_interface::robot_interface(int enc_counts_per_rev, int port_block_timeout_
 
     this->port_block_timeout_ms = port_block_timeout_ms;
     last_velocity_sample_time = std::chrono::system_clock::now();
-
+     imu_sample_linear_acc_x = 0;
+     imu_sample_linear_acc_y = 0;
+     imu_sample_linear_acc_z = 0;
+     imu_sample_orientation_roll = 0; //  x roll, 
+     imu_sample_orientation_pitch = 0; // y pitch,
+     imu_sample_orientation_yaw = 0; //  z yaw
+     imu_sample_orientation_x = 0; // in quarternion;
+     imu_sample_orientation_y = 0; // in quarternion;
+     imu_sample_orientation_z  = 0; // in quarternion;
+     imu_sample_orientation_w = 0; // in quarternion;
+     imu_sample_angular_vel_x = 0; 
+     imu_sample_angular_vel_y = 0; 
+     imu_sample_angular_vel_z = 0; 
     
 }
 
@@ -113,7 +125,12 @@ void robot_interface::parse_packets_to_data_frames(esp_serial_driver& driver){
                 imu_sample_orientation_x = quat.getX();
                 imu_sample_orientation_y = quat.getY();
                 imu_sample_orientation_z = quat.getZ();
-                imu_sample_orientation_w = quat.getW();                
+                imu_sample_orientation_w = quat.getW();        
+
+                // also get the angular speed
+                imu_sample_angular_vel_x =  rot_frame.m_field_x;        
+                imu_sample_angular_vel_y =  rot_frame.m_field_y;  
+                imu_sample_angular_vel_z =  rot_frame.m_field_z;  
                 break;
             }
             case esp_packets::message_types::esp_imu_trans:
@@ -141,7 +158,8 @@ void robot_interface::parse_packets_to_data_frames(esp_serial_driver& driver){
                 range_sensor_right_m = sonar_frame.distance_right / 100;
                 break;
             }
-                
+   
+                               
             default:
             {
                 std::cout << "Non recognized packet came with packet type: " << packet.message_type << std::endl;
