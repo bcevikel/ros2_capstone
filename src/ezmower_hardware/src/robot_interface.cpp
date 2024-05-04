@@ -138,8 +138,8 @@ void robot_interface::parse_packets_to_data_frames(esp_serial_driver& driver){
                 esp_packets::data_frame_imu_trans trans_packet = {0};
                 std::memcpy(&trans_packet,packet.data,sizeof(esp_packets::data_frame_imu_trans));
                 imu_sample_linear_acc_x = trans_packet.linear_acc_x;
-                imu_sample_linear_acc_y = trans_packet.linear_acc_y;
-                imu_sample_linear_acc_z = trans_packet.linear_acc_z;
+                imu_sample_linear_acc_y = trans_packet.linear_acc_z;
+                imu_sample_linear_acc_z = trans_packet.linear_acc_y;
                 break;
             }
             case esp_packets::message_types::esp_imu_temp:
