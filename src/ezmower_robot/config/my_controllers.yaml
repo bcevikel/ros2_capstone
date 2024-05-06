@@ -78,7 +78,7 @@ imu_broadcaster:
   ros__parameters:
     sensor_name : ezmower_imu
     frame_id : chasis
-    static_covariance_orientation : [0.001, 0.0, 0.0,     0.0, 0.001, 0.0,     0.0, 0.0, 0.1] # r p y
-    static_covariance_angular_velocity : [0.001, 0.0, 0.0,  0.0, 0.001, 0.0,   0.0, 0.0, 0.2] #z ang vel 
+    static_covariance_orientation : [0.001, 0.0, 0.0,     0.0, 0.001, 0.0,     0.0, 0.0, 0.05] # r p y
+    static_covariance_angular_velocity : [0.001, 0.0, 0.0,  0.0, 0.001, 0.0,   0.0, 0.0, 0.15] #z ang vel 
     # static_covariance_linear_acceleration : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] # not used 
     
