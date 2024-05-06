@@ -35,7 +35,7 @@ mobile_base_controller:
     wheel_radius: 0.0625
     left_wheel_radius_multiplier : 0.99
     right_wheel_radius_multiplier : 0.99
-    enable_odom_tf:  true
+    enable_odom_tf:  false
     use_stamped_vel: false
     pose_covariance_diagonal: [0.001, 0.001, 999.9, 999.9, 999.9, 0.01] # x y z    r p y 
     twist_covariance_diagonal: [999.9, 999.9, 999.9, 999.9, 999.9, 0.01] # linear x y z ang x y z 
