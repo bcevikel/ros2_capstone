@@ -31,8 +31,10 @@ mobile_base_controller:
     left_wheel_names: ['left_wheel_joint']
     right_wheel_names: ['right_wheel_joint']
     wheel_separation: 0.425
-    wheel_separation_multiplier : 1.0
+    wheel_separation_multiplier : 0.90
     wheel_radius: 0.0625
+    left_wheel_radius_multiplier : 0.99
+    right_wheel_radius_multiplier : 0.99
     enable_odom_tf:  true
     use_stamped_vel: false
     pose_covariance_diagonal: [0.001, 0.001, 999.9, 999.9, 999.9, 0.01] # x y z    r p y 
