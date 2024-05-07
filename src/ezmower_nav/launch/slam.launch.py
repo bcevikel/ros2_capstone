@@ -13,12 +13,12 @@ def generate_launch_description():
 
 
     ld.add_action(IncludeLaunchDescription(
-        PathJoinSubstitution([FindPackageShare('slam_toolbox'), 'launch', 'online_async_launch.py'])),
+        PathJoinSubstitution([FindPackageShare('slam_toolbox'), 'launch', 'online_async_launch.py']),
         launch_arguments={
             'use_sim_time' : False,
             'slam_params_file' : PathJoinSubstitution([FindPackageShare('ezmower_nav'), 'config', 'slam.yaml']),
         }.items()
-    )
+    ))
 
 
     return ld
