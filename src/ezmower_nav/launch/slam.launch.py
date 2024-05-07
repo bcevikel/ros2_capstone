@@ -17,7 +17,7 @@ def generate_launch_description():
         launch_arguments={
             'use_sim_time' : False,
             'slam_params_file' : PathJoinSubstitution([FindPackageShare('ezmower_nav'), 'config', 'slam.yaml']),
-        }
+        }.items()
     )
 
 
