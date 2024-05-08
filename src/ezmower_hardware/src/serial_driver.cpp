@@ -396,7 +396,7 @@ bool esp_serial_driver::send_data(void* data, size_t size, int timeout_ms){
                 did_send = true;
             }
             else{
-
+                did_send = false;
             }
 
         });
