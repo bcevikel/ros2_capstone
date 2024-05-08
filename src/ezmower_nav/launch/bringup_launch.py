@@ -379,7 +379,7 @@ def generate_launch_description():
             ),
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                    os.path.join(launch_dir, 'localization_launch.py')
+                    os.path.join(launch_dir, 'localization.launch.py')
                 ),
                 condition=IfCondition(PythonExpression(['not ', slam])),
                 launch_arguments={
