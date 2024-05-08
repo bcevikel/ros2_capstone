@@ -11,13 +11,10 @@ def generate_launch_description():
     ld = LaunchDescription()
 
 
-    # set up path for robot meshes
-    # meshes_path = PathJoinSubstitution([FindPackageShare('ezmower_robot'),'meshes'])
 
-    SetEnvironmentVariable('EZMOWER_MESHES_PATH', '1'),
+    ld.add_action(DeclareLaunchArgument(name='rviz-config-file-name', default_value='robot_nav.rviz', description='The file name of the rviz config file to use'))
 
-
-    rviz_config_file = PathJoinSubstitution([FindPackageShare('ezmower_robot'),'config','robot.rviz'])
+    rviz_config_file = PathJoinSubstitution([FindPackageShare('ezmower_robot'),'config',LaunchConfiguration('rviz-config-file-name')])
 
     action_launch_rviz = Node(
         package='rviz2',
