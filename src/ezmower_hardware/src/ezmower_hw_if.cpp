@@ -205,7 +205,9 @@ return_type ezmower_hardware::ezmower_hw_if::write(const rclcpp::Time & time, co
     float left_cps = left_rad_per_s_wr / ( 2* M_PI) * (robot_interface_ptr->encoder_counts_per_rev);
     float right_cps = right_rad_per_s_wr / ( 2* M_PI) * (robot_interface_ptr->encoder_counts_per_rev);
     bool did_send = robot_interface_ptr->set_both_cps_values(*serial_driver_ptr,left_cps,right_cps);
-    RCLCPP_WARN(rclcpp::get_logger("ezmower_hardware"),"Connection is up up but could not send data.");
+    if(!did_send){
+        RCLCPP_WARN(rclcpp::get_logger("ezmower_hardware"),"Connection is up up but could not send data.");
+    }
 
 
     
