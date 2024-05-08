@@ -30,7 +30,7 @@ def generate_launch_description():
                                       parameters=[{
                                           'robot_description': robot_description_content,
                                           'use_sim_time' : should_use_sim_time,
-                                          'publish_frequency' : 60,
+                                          'publish_frequency' : 60.0,
                                           #'ignore_timestamp' : True,
                                       }])
 
