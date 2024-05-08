@@ -14,7 +14,7 @@ def generate_launch_description():
 
 
     ld.add_action(IncludeLaunchDescription(
-        PathJoinSubstitution([FindPackageShare('nav2-bringup'), 'launch', 'bringup_launch.py']),
+        PathJoinSubstitution([FindPackageShare('ezmower_nav'), 'launch', 'bringup_launch.py']),
         launch_arguments={
             'use_sim_time' : 'false',
             'params_file': PathJoinSubstitution([FindPackageShare('ezmower_nav'), 'config', 'nav2_goal.yaml']),
