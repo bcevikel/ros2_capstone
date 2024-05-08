@@ -174,20 +174,20 @@ return_type ezmower_hardware::ezmower_hw_if::read(const rclcpp::Time & time, con
 
     robot_interface_ptr->parse_packets_to_data_frames(*serial_driver_ptr);
     //log the messages recieved from esp32
-    while(!serial_driver_ptr->is_info_log_empty()){
-        std::string esp_info = "[ESP INFO] " +  serial_driver_ptr->pop_info_log();
-        RCLCPP_INFO(rclcpp::get_logger("ezmower_hardware"),esp_info.c_str());
-    }
+    // while(!serial_driver_ptr->is_info_log_empty()){
+    //     std::string esp_info = "[ESP INFO] " +  serial_driver_ptr->pop_info_log();
+    //     RCLCPP_INFO(rclcpp::get_logger("ezmower_hardware"),esp_info.c_str());
+    // }
 
-    while(!serial_driver_ptr->is_warning_log_empty()){
-        std::string esp_warn = "[ESP WARNING] " +  serial_driver_ptr->pop_warning_log();
-        RCLCPP_WARN(rclcpp::get_logger("ezmower_hardware"),esp_warn.c_str());
-    }
+    // while(!serial_driver_ptr->is_warning_log_empty()){
+    //     std::string esp_warn = "[ESP WARNING] " +  serial_driver_ptr->pop_warning_log();
+    //     RCLCPP_WARN(rclcpp::get_logger("ezmower_hardware"),esp_warn.c_str());
+    // }
     
-    while(!serial_driver_ptr->is_error_log_emtpy()){
-        std::string esp_error = "[ESP ERROR] " + serial_driver_ptr->pop_error_log();
-        RCLCPP_ERROR(rclcpp::get_logger("ezmower_hardware"),esp_error.c_str());
-    }
+    // while(!serial_driver_ptr->is_error_log_emtpy()){
+    //     std::string esp_error = "[ESP ERROR] " + serial_driver_ptr->pop_error_log();
+    //     RCLCPP_ERROR(rclcpp::get_logger("ezmower_hardware"),esp_error.c_str());
+    // }
     
     return return_type::OK;
 }

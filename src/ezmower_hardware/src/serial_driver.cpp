@@ -340,6 +340,9 @@ bool esp_serial_driver::recieve_some_data(int timeout_ms){
             packet_buffer->insert(packet_buffer->end(),raw_data.begin(), raw_data.begin() + bytes_read);
             log_buffer->insert(log_buffer->end(),raw_data.begin(), raw_data.begin() + bytes_read);
             // process
+            std::string hard_debug(raw_data.begin(),raw_data.end());
+            RCLCPP_WARN(rclcpp::get_logger("ezmower_hardware"),hard_debug.c_str());
+
             parse_log_strings();
             parse_packets();
         }
