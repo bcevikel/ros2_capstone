@@ -21,6 +21,11 @@ def generate_launch_description():
             }.items()
     ))
 
+
+    ld.add_action(IncludeLaunchDescription(
+        PathJoinSubstitution([FindPackageShare('ezmower_robot'), 'launch', 'lidar.launch.py'])))
+
+
     rviz_config_file = PathJoinSubstitution([FindPackageShare('ezmower_robot'),'config','robot.rviz'])
 
     action_launch_rviz = Node(

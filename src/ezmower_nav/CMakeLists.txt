@@ -4,7 +4,7 @@ project(ezmower_nav)
 find_package(ament_cmake REQUIRED)
 
 install(
-    DIRECTORY config launch
+    DIRECTORY config launch maps
     DESTINATION share/${PROJECT_NAME}
 )
 
