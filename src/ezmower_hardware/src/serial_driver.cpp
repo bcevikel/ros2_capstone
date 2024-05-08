@@ -441,13 +441,13 @@ std::string esp_serial_driver::pop_warning_log()
     // if(error_logs.empty()){
     //     throw std::out_of_range("Warning logs are empty.");
     // }
-    else{
+    // else{
 
         std::string str;
         str = warning_logs.front();
         warning_logs.pop();
         return str;
-    }
+    // }
 }
 
 bool esp_serial_driver::is_warning_log_empty()
