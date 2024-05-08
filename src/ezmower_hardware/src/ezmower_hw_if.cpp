@@ -176,7 +176,7 @@ return_type ezmower_hardware::ezmower_hw_if::read(const rclcpp::Time & time, con
     //log the messages recieved from esp32
     while(!serial_driver_ptr->is_info_log_empty()){
         std::string esp_info = "[ESP INFO] " +  serial_driver_ptr->pop_info_log();
-   //     RCLCPP_INFO(rclcpp::get_logger("ezmower_hardware"),esp_info.c_str());
+        RCLCPP_INFO(rclcpp::get_logger("ezmower_hardware"),esp_info.c_str());
     }
 
     while(!serial_driver_ptr->is_warning_log_empty()){
