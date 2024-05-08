@@ -55,6 +55,10 @@ CallbackReturn ezmower_hardware::ezmower_hw_if::on_init(const hardware_interface
     robot_config.port_name = info.hardware_parameters.at("port_name");
     robot_config.baud_rate = std::stoi(info.hardware_parameters.at("baud_rate"));
     robot_config.encoder_counts_per_rev = std::stoi(info.hardware_parameters.at("enc_counts_per_rev"));
+    robot_config.kp = std::stof(info.hardware_parameters.at("kp"));
+    robot_config.ki = std::stof(info.hardware_parameters.at("ki"));
+    robot_config.kd = std::stof(info.hardware_parameters.at("kd"));
+
     // allocate the objects 
     serial_driver_ptr = std::make_unique<esp_serial_driver>(5000,robot_config.baud_rate,robot_config.port_name,32);
     robot_interface_ptr = std::make_unique<robot_interface>(robot_config.encoder_counts_per_rev,robot_config.port_block_timeout_ms);
@@ -75,6 +79,15 @@ CallbackReturn ezmower_hardware::ezmower_hw_if::on_configure(const rclcpp_lifecy
     serial_driver_ptr->connect();
     if(serial_driver_ptr->is_connected()){
         RCLCPP_INFO(rclcpp::get_logger("ezmower_hardware"),"Connected for the first time to ESP32.");
+        esp_packets::data_frame_command_pid cmd = {
+            .kp = robot_config.kp,
+            .ki = robot_config.ki,
+            .kd = robot_config.kd,
+        };
+
+        serial_driver_ptr->send_data(&cmd,sizeof(esp_packets::data_frame_command_pid),robot_config.connection_timeout_ms);
+        RCLCPP_INFO(rclcpp::get_logger("ezmower_hardware"),"Sent PID Params.");
+        
         return CallbackReturn::SUCCESS;
     }
     else{
@@ -179,15 +192,15 @@ return_type ezmower_hardware::ezmower_hw_if::read(const rclcpp::Time & time, con
     //     RCLCPP_INFO(rclcpp::get_logger("ezmower_hardware"),esp_info.c_str());
     // }
 
-    // while(!serial_driver_ptr->is_warning_log_empty()){
-    //     std::string esp_warn = "[ESP WARNING] " +  serial_driver_ptr->pop_warning_log();
-    //     RCLCPP_WARN(rclcpp::get_logger("ezmower_hardware"),esp_warn.c_str());
-    // }
+    while(!serial_driver_ptr->is_warning_log_empty()){
+        std::string esp_warn = "[ESP WARNING] " +  serial_driver_ptr->pop_warning_log();
+        RCLCPP_WARN(rclcpp::get_logger("ezmower_hardware"),esp_warn.c_str());
+    }
     
-    // while(!serial_driver_ptr->is_error_log_emtpy()){
-    //     std::string esp_error = "[ESP ERROR] " + serial_driver_ptr->pop_error_log();
-    //     RCLCPP_ERROR(rclcpp::get_logger("ezmower_hardware"),esp_error.c_str());
-    // }
+    while(!serial_driver_ptr->is_error_log_emtpy()){
+        std::string esp_error = "[ESP ERROR] " + serial_driver_ptr->pop_error_log();
+        RCLCPP_ERROR(rclcpp::get_logger("ezmower_hardware"),esp_error.c_str());
+    }
     
     return return_type::OK;
 }

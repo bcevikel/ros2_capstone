@@ -25,6 +25,9 @@ namespace ezmower_hardware
         int encoder_counts_per_rev = 70;
         int port_block_timeout_ms = 150;
         int connection_timeout_ms = 5000;
+        float kp = 0.6;
+        float ki = 0.3;
+        float kd = 0.05;
     };
 
 

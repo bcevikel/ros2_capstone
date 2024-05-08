@@ -16,6 +16,10 @@
             <param name="sonar_sensor_left_name">ezmower_range_left</param>
             <param name="sonar_sensor_center_name">ezmower_range_center</param>
             <param name="sonar_sensor_right_name">ezmower_range_right</param>
+            <param name="kp">0.6</param>
+            <param name="ki">0.3</param>
+            <param name="kd">0.05</param>
+
         </hardware>
         <joint name="left_wheel_joint">
             <command_interface name="velocity">
