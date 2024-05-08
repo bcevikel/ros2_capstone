@@ -60,7 +60,7 @@
         <visual>
             <origin xyz="0.015 1.75 -0.05" rpy="0 0 ${-pi/2}"/>
             <geometry>
-                <mesh filename="file://$(find ezmower_robot)/meshes/chasis.stl" scale="0.0001 0.0001 0.0001"/>
+                <mesh filename="package://ezmower_robot/meshes/chasis.stl" scale="0.0001 0.0001 0.0001"/>
             </geometry>
         </visual>
         <collision> 
