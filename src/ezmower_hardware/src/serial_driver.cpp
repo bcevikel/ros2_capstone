@@ -395,7 +395,7 @@ bool esp_serial_driver::send_data(void* data, size_t size, int timeout_ms){
             if(!ec && bytes_transferred >= size){
                 did_send = true;
             }
-            else{
+            else{ 
                 did_send = false;
             }
 
@@ -438,9 +438,9 @@ bool esp_serial_driver::is_error_log_emtpy()
 
 std::string esp_serial_driver::pop_warning_log()
 {
-    if(error_logs.empty()){
-        throw std::out_of_range("Warning logs are empty.");
-    }
+    // if(error_logs.empty()){
+    //     throw std::out_of_range("Warning logs are empty.");
+    // }
     else{
 
         std::string str;

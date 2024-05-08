@@ -92,6 +92,7 @@ void robot_interface::parse_packets_to_data_frames(esp_serial_driver& driver){
         }
         catch(const std::exception& e)
         {
+            RCLCPP_WARN(rclcpp::get_logger("ezmower_hardware"),"Attempt to read but no packets.");
             return;
         }
         
