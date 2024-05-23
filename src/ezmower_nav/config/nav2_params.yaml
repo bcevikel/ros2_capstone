@@ -340,22 +340,11 @@ collision_monitor:
       enabled: True
     PolygonSlow:
       type: "polygon"
-      points: [[0.5, 0.5], [0.5, -0.5], [-0.25, -0.5], [-0.25, 0.5]]
       action_type: "slowdown"
       min_points: 4  # max_points: 3 for Humble
       slowdown_ratio: 0.3
       visualize: True
       polygon_pub_topic: "polygon_slowdown"
-      enabled: True
-    PolygonLimit:
-      type: "polygon"
-      points: "[[0.25, 0.25], [0.25, -0.25], [-0.25, -0.25], [-0.25, 0.25]]"
-      action_type: "limit"
-      min_points: 4  # max_points: 3 for Humble
-      linear_limit: 0.4
-      angular_limit: 0.5
-      visualize: True
-      polygon_pub_topic: "polygon_limit"
       enabled: True
     FootprintApproach:
       type: "polygon"
@@ -366,42 +355,6 @@ collision_monitor:
       min_points: 6  # max_points: 5 for Humble
       visualize: False
       enabled: True
-    VelocityPolygonStop:
-      type: "velocity_polygon"
-      action_type: "stop"
-      min_points: 6
-      visualize: True
-      enabled: True
-      polygon_pub_topic: "velocity_polygon_stop"
-      velocity_polygons: ["rotation", "translation_forward", "translation_backward", "stopped"]
-      holonomic: false
-      rotation:
-        points: "[[0.2, 0.2], [0.2, -0.2], [-0.2, -0.2], [-0.2, 0.2]]"
-        linear_min: 0.0
-        linear_max: 0.05
-        theta_min: -1.0
-        theta_max: 1.0
-      translation_forward:
-        points: "[[0.35, 0.3], [0.35, -0.3], [-0.2, -0.3], [-0.2, 0.3]]"
-        linear_min: 0.0
-        linear_max: 1.0
-        theta_min: -1.0
-        theta_max: 1.0
-      translation_backward:
-        points: "[[0.2, 0.3], [0.2, -0.3], [-0.35, -0.3], [-0.35, 0.3]]"
-        linear_min: -1.0
-        linear_max: 0.0
-        theta_min: -1.0
-        theta_max: 1.0
-      # This is the last polygon to be checked, it should cover the entire range of robot's velocities
-      # It is used as the stopped polygon when the robot is not moving and as a fallback if the velocity
-      # is not covered by any of the other sub-polygons
-      stopped:
-        points: "[[0.25, 0.25], [0.25, -0.25], [-0.25, -0.25], [-0.25, 0.25]]"
-        linear_min: -1.0
-        linear_max: 1.0
-        theta_min: -1.0
-        theta_max: 1.0
     observation_sources: ["scan"]
     scan:
       source_timeout: 0.2
