@@ -332,7 +332,7 @@ collision_monitor:
     polygons: ["FootprintApproach","PolygonStop"]
     FootprintApproach:
       type: "polygon"
-      action_type: "stop"
+      action_type: "approach"
       footprint_topic: "/local_costmap/published_footprint"
       time_before_collision: 0.5
       simulation_time_step: 0.1
