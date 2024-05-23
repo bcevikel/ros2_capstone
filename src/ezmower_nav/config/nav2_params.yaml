@@ -340,7 +340,7 @@ collision_monitor:
       enabled: True
     PolygonSlow:
       type: "polygon"
-      points: "[[0.5, 0.5], [0.5, -0.5], [-0.25, -0.5], [-0.25, 0.5]]"
+      points: [[0.5, 0.5], [0.5, -0.5], [-0.25, -0.5], [-0.25, 0.5]]
       action_type: "slowdown"
       min_points: 4  # max_points: 3 for Humble
       slowdown_ratio: 0.3

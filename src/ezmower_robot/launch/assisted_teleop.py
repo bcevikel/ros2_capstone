@@ -11,7 +11,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 def generate_launch_description():
     ld = LaunchDescription()
 
-    ld.add_action(DeclareLaunchArgument(name='cmd-vel-topic', default_value='/cmd_vel_smoothed', description='The cmd_vel topic to publish to'))
+    ld.add_action(DeclareLaunchArgument(name='cmd-vel-topic', default_value='cmd_vel_smoothed', description='The cmd_vel topic to publish to'))
  
     ld.add_action(DeclareLaunchArgument(name='use_sim_time', default_value='false', choices=['true', 'false'],
                                         description='Should we use Gazebo time or ROS time ? '))
